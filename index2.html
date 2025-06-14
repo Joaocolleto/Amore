@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuva de Corações</title>
+  <link rel="shortcut icon" href="coracao.png" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      overflow-y: auto; /* Permite rolagem vertical */
+      background-color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Container do player no topo */
+    .player-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: #000;
+      padding: 10px 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      z-index: 10;
+    }
+
+    .album-art {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    audio {
+      width: 300px;
+      height: 40px;
+      background-color: black;
+      border-radius: 10px;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: rgb(98, 96, 96);
+    }
+
+    /* Imagem central */
+    .center-image-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      z-index: 1;
+      margin-top: 100px; /* Para dar espaço abaixo do player fixo */
+    }
+
+    .center-image {
+      max-width: 60%;
+      max-height: 60%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Corações */
+    .heart {
+      position: absolute;
+      top: -50px;
+      font-size: 2rem;
+      color: white;
+      animation: fall linear;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Texto */
+    p {
+      color: white;
+      font-size: 1.2rem;
+      margin: 15px 20px 50px 20px;
+      max-width: 700px;
+      text-align: center;
+      line-height: 1.5;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Player estilo Spotify -->
+<div class="player-container">
+  <img src="37551732195580.avif" alt="Capa do álbum" class="album-art">
+  <audio controls autoplay loop>
+    <source src="Coldplay - Sparks.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<!-- Imagem central -->
+<div class="center-image-container">
+  <img src="WhatsApp Image 2025-06-09 at 23.42.43.jpeg" alt="Imagem Central" class="center-image">
+</div>
+
+<p>
+  Sério, às vezes eu paro e fico pensando como tive tanta sorte de te encontrar. Você é incrível em todos os sentidos, e desde que você chegou, minha vida ficou mil vezes melhor.<br>
+  Teu jeito, teu sorriso, tuas manias... tudo em você me faz te amar mais e mais a cada dia.<br><br>
+
+  Eu não quero só estar com você por um tempo. Quero você pra sempre. Quero acordar do teu lado, rir das coisas bobas, dividir os momentos bons e segurar tua mão nos momentos difíceis.<br>
+  Quero ser teu porto seguro, tua paz, teu parceiro pra tudo.<br><br>
+
+  Te amo de um jeito que nem sei explicar direito. Só sei que é real, é forte e é pra valer.<br>
+  Yasmim, é com você que eu quero construir minha história.<br><br>
+
+  Pra sempre é pouco quando se trata de você. ❤️
+</p>
+
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 8 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  setInterval(createHeart, 150);
+</script>
+
+</body>
+</html>

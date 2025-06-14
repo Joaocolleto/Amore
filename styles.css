@@ -1,0 +1,61 @@
+body{
+    background-color: black;
+}
+.coracao{
+    position: absolute;
+    top: 0;
+    animation: linear 21;
+}
+#coracao-container {
+  position: relative; 
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+.coracao {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(243, 242, 242);
+  transform: rotate(45deg);
+  top: 0; 
+  left: 0; 
+  animation: cai-corao 5s linear infinite; 
+  border-radius: 50%;
+}
+
+.coracao:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg) scale(0.5);
+}
+
+.coracao:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg) scale(0.5);
+  top: 50%; 
+  left: 50%;
+}
+
+@keyframes cai-corao {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
